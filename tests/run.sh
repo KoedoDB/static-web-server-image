@@ -10,7 +10,7 @@
 set -uo pipefail
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 IMAGE="$(tr -d '[:space:]' < "$here/IMAGE")"
-run="kbsws$$"
+run="kbswsi$$"
 work="${HOME}/.${run}"; rm -rf "$work"; mkdir -p "$work/public/sub" "$work/public/.hidden" "$work/public/emptydir" "$work/public/assets"; chmod 755 "$work"
 cleanup() { docker rm -f "${run}" >/dev/null 2>&1; rm -rf "$work"; }
 trap '[ -n "${KEEP:-}" ] || cleanup' EXIT
