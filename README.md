@@ -70,7 +70,7 @@ The Pod's resources: **memory request 16 MiB, limit 32 MiB; CPU request 10m, lim
 - memory and CPU with the Pod's limits: 100 concurrent requests, 20,000 times, for two files; the 2 MB bundle; ten 100 MB downloads at once; the peak RSS stays under 24 MiB and nothing is killed;
 - shutdown: with the default grace period a running download is cut; with `SERVER_GRACE_PERIOD=15` it finishes; a restart serves again.
 
-It needs Docker, Python 3, curl and `ab` (apache2-utils), and uses no secrets: the "secret" file is made up for the run. A weekly workflow runs it.
+It needs Docker, Python 3, curl and `ab` (apache2-utils), and uses no secrets: the "secret" file is made up for the run. A workflow runs it on every push and pull request (and by hand).
 
 ## Measured
 
